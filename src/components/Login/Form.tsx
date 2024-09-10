@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+
 function Form() {
+  const navigate = useNavigate();
   return (
     <form
       className="flex flex-col gap-5 p-5 items-center"
@@ -27,7 +30,10 @@ function Form() {
           <a href="a" target="_blank" className="text-[#FF015C]">Esqueceu a senha?</a>
         </p>
       </section>
-      <button className="bg-[#333333] w-full text-white p-4 rounded-3xl max-w-[400px]">
+      <button
+        className="bg-[#333333] w-full text-white p-4 rounded-3xl max-w-[400px]"
+        onClick={ () => navigate('/Home') }
+      >
         Entrar
       </button>
     </form>

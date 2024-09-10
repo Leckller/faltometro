@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface MateriasState {
   clicks: number;
@@ -12,8 +12,8 @@ export const MateriasSlice = createSlice({
   name: 'Materias',
   initialState,
   reducers: {
-    addMateria(state, action: PayloadAction) {
-      // TO-DO
+    addMateria(state) {
+      state.clicks++;
     },
   },
 });
