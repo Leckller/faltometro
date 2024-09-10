@@ -1,6 +1,8 @@
 function Footer() {
   return (
-    <div>Footer</div>
+    <footer className="h-[10vh]">
+      footer
+    </footer>
   );
 }
 
