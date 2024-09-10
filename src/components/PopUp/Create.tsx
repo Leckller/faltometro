@@ -1,12 +1,12 @@
-import Bg from './Bg';
+import Popup from './Popup';
 
 function Create() {
   return (
-    <Bg>
+    <Popup>
       <section className="bg-[#FEFFF2] w-full h-full">
         a
       </section>
-    </Bg>
+    </Popup>
   );
 }
 
