@@ -12,7 +12,7 @@ export const MateriasSlice = createSlice({
   name: 'Materias',
   initialState,
   reducers: {
-    addMateria(state, action: PayloadAction) {
+    addMateria(_state, _action: PayloadAction) {
       // TO-DO
     },
   },
