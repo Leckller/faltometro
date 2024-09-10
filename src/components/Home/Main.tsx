@@ -1,6 +1,6 @@
 function Main() {
   return (
-    <main className="bg-[#FEFFF2] min-h-[80vh]">
+    <main className="bg-[#FEFFF2] min-h-[90vh]">
       Home
     </main>
   );
