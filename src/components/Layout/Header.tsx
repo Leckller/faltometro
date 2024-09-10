@@ -35,7 +35,7 @@ function Header() {
         className="h-full w-[33%] flex flex-row items-center justify-end"
         onClick={ () => {
           dispatch(toggleVisible());
-          dispatch(setPopupType('create'));
+          dispatch(setPopupType({ type: 'create', name: 'Adicionar Matéria' }));
         } }
       >
         <MdLibraryAdd className="object-cover h-full w-6" />

@@ -3,12 +3,14 @@ import { Popups } from '../../types/Popup';
 
 interface PopupState {
   visible: boolean;
-  type: Popups
+  type: Popups;
+  name: string;
 }
 
 const initialState: PopupState = {
   visible: false,
   type: 'create',
+  name: 'Adicionar matéria',
 };
 
 export const PopupSlice = createSlice({
@@ -18,8 +20,9 @@ export const PopupSlice = createSlice({
     toggleVisible(state) {
       state.visible = !state.visible;
     },
-    setPopupType(state, action: PayloadAction<'create'>) {
-      state.type = action.payload;
+    setPopupType(state, action: PayloadAction<{ type: Popups, name: string }>) {
+      state.type = action.payload.type;
+      state.name = action.payload.name;
     },
   },
 });
