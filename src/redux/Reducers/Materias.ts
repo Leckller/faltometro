@@ -9,7 +9,7 @@ const initialState: MateriasState = {
   materias: (new Array(5)
     .fill({
       className: 'teste',
-      completed: new Array(5).fill(null).map(() => ({ date: undefined, notes: '' })),
+      completed: new Array(5).fill(null).map(() => ({ date: undefined, notes: 'Esse dia aqui bahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' })),
       title: 'calc',
       id: 0 }) as IAula[]).map((m) => ({ ...m, id: Math.random() * 9999 })),
 };
@@ -32,7 +32,8 @@ export const MateriasSlice = createSlice({
       }
       // Procura de trás para frente por uma data preenchida
       const verifyDate = className.completed.reverse().find((m) => m.date !== undefined);
-      if (verifyDate && verifyDate.date!.getDay() === new Date().getDay()) {
+      if (verifyDate
+        && verifyDate.date!.toLocaleDateString() === new Date().toLocaleDateString()) {
         verifyDate.date = undefined;
         return;
       }

@@ -19,9 +19,10 @@ function Aula({ fields }: { fields: IAula }) {
     .find((m, i) => m.date && completed[i + 1]?.date === undefined);
 
   function finishDayClass():boolean {
-    const actualDay = new Date().getDay();
+    const actualDay = new Date().toLocaleDateString();
     // Verifica se a aula do dia já foi marcada
-    if (ultimaAulaConcluida && ultimaAulaConcluida.date?.getDay() === actualDay) {
+    if (ultimaAulaConcluida
+      && ultimaAulaConcluida.date?.toLocaleDateString() === actualDay) {
       return true;
     }
     // Verifica se a última aula já foi marcada como concluída

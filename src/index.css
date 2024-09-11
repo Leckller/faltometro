@@ -5,3 +5,11 @@
 * {
     color: #1B1B1B;
 }
+
+.noScroll {
+    scrollbar-width: 0;
+}
+
+.noScroll::-webkit-scrollbar {
+    display: none;
+}

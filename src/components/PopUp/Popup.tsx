@@ -24,7 +24,7 @@ function Popup({ children }: { children: ReactNode }) {
         w-[80%] h-[80%] max-w-[1000px] max-h-[600px] rounded-2xl"
       >
         <section className="flex flex-row justify-between">
-          <h2 className="font-semibold text-2xl">{name}</h2>
+          <h2 className="font-bold text-2xl">{name}</h2>
           <button
             onClick={ () => dispatch(toggleVisible()) }
             className="text-2xl"
