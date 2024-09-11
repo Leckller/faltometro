@@ -1,9 +1,8 @@
-/* eslint-disable sonarjs/prefer-single-boolean-return */
-/* eslint-disable no-nested-ternary */
 import { useAppDispatch } from '../../../hooks/reduxHooks';
 import { toggleClassFinished } from '../../../redux/Reducers/Materias';
 import { setPopupType, toggleVisible } from '../../../redux/Reducers/Popup';
 import { IAula } from '../../../types';
+import finishDayClass from '../../../utils/finishDayClass';
 
 function Aula({ fields }: { fields: IAula }) {
   const { className, completed, title, id } = fields;
@@ -14,23 +13,6 @@ function Aula({ fields }: { fields: IAula }) {
     const act = prev + (cur.date ? 0 : 1);
     return act;
   }, 0);
-
-  const ultimaAulaConcluida = completed
-    .find((m, i) => m.date && completed[i + 1]?.date === undefined);
-
-  function finishDayClass():boolean {
-    const actualDay = new Date().toLocaleDateString();
-    // Verifica se a aula do dia já foi marcada
-    if (ultimaAulaConcluida
-      && ultimaAulaConcluida.date?.toLocaleDateString() === actualDay) {
-      return true;
-    }
-    // Verifica se a última aula já foi marcada como concluída
-    if (completed[completed.length - 1].date !== undefined) {
-      return true;
-    }
-    return false;
-  }
 
   return (
     <article className="bg-white flex items-center gap-5 text-lg flex-wrap max-w-60">
@@ -63,8 +45,8 @@ function Aula({ fields }: { fields: IAula }) {
       </button>
       <input
         type="checkbox"
-        onClick={ () => dispatch(toggleClassFinished(id)) }
-        checked={ finishDayClass() }
+        onChange={ () => dispatch(toggleClassFinished({ id })) }
+        checked={ finishDayClass(completed) }
       />
     </article>
   );

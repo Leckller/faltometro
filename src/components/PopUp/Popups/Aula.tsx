@@ -1,9 +1,13 @@
-import { useAppSelector } from '../../../hooks/reduxHooks';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import { toggleClassFinished } from '../../../redux/Reducers/Materias';
+import finishDayClass from '../../../utils/finishDayClass';
 import Popup from '../Popup';
 
 function Aula() {
   const { Popup: { id }, Materias: { materias } } = useAppSelector((s) => s);
   const aula = materias.find((m) => m.id === id);
+  const dispatch = useAppDispatch();
   return (
     <Popup>
       <section className="flex flex-col overflow-y-scroll gap-5 noScroll">
@@ -21,6 +25,8 @@ function Aula() {
             </article>
             <input
               type="checkbox"
+              onChange={ () => dispatch(toggleClassFinished({ id, index: i })) }
+              checked={ finishDayClass(aula.completed, i) }
             />
           </label>
         ))}
