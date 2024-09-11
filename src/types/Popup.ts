@@ -1,1 +1,1 @@
-export type Popups = 'create';
+export type Popups = 'create' | 'aula' | 'lembrete';

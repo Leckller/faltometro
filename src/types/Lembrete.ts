@@ -3,4 +3,5 @@ export default interface ILembrete {
   subTitle: string,
   description: string,
   deadLine: Date,
+  id: number,
 }
