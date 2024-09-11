@@ -1,3 +1,4 @@
-import Main from './Main';
+import Lembrete from './Lembrete/Section';
+import Aula from './Aula/Section';
 
-export { Main };
+export { Lembrete, Aula };

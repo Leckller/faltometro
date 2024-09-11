@@ -1,8 +1,11 @@
-import { Main } from '../components/Home/Index';
+import { Aula, Lembrete } from '../components/Home/Index';
 
 function Home() {
   return (
-    <Main />
+    <main className="flex flex-col justify-center items-center">
+      <Lembrete />
+      <Aula />
+    </main>
   );
 }
 

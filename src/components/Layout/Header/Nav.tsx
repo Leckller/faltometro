@@ -3,12 +3,14 @@ import { IoMenu } from 'react-icons/io5';
 function Nav() {
   return (
     <>
-      <button
+      <section
         className="md:hidden
         h-full w-[33%] flex flex-row items-center justify-start"
       >
-        <IoMenu className="object-cover h-full w-6" />
-      </button>
+        <button>
+          <IoMenu className="object-cover h-full w-6" />
+        </button>
+      </section>
 
       <nav
         className="hidden md:flex justify-around
