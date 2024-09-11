@@ -37,17 +37,13 @@ export const MateriasSlice = createSlice({
         return;
       }
 
-      // Verifica se foi passado um index do dia da matéria
-      // Caso sim retorna o dia, caso não retorna undefined
-      const dayByIndex = index ? className.completed[index] : undefined;
-
-      // Verifica se é para desmarcar ou marcar como concluído
-      if (dayByIndex) {
-        if (dayByIndex.date) {
-          dayByIndex.date = undefined;
+      // Verifica se é para desmarcar ou marcar como concluído de acordo com o index passado
+      if (index !== undefined) {
+        if (className.completed[index].date) {
+          className.completed[index].date = undefined;
           return;
         }
-        dayByIndex.date = new Date();
+        className.completed[index].date = new Date();
         return;
       }
 

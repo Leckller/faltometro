@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { toggleClassFinished } from '../../../redux/Reducers/Materias';
-import finishDayClass from '../../../utils/finishDayClass';
 import Popup from '../Popup';
 
 function Aula() {
@@ -26,7 +25,7 @@ function Aula() {
             <input
               type="checkbox"
               onChange={ () => dispatch(toggleClassFinished({ id, index: i })) }
-              checked={ finishDayClass(aula.completed, i) }
+              checked={ !!aula.completed[i].date }
             />
           </label>
         ))}
